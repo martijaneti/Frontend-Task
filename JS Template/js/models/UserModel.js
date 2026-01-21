@@ -1,5 +1,3 @@
-// UserModel.js - Manages user data in Local Storage
-
 class UserModel {
     constructor() {
         this.storageKey = 'inensia_users';
@@ -7,7 +5,7 @@ class UserModel {
 
     /**
      * Get all users from Local Storage
-     * @returns {Array} Array of user objects
+     * @returns {Array} //Array of user objects
      */
     getAll() {
         try {

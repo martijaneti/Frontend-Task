@@ -31,7 +31,7 @@ class NotificationView {
         const notification = document.createElement('div');
         notification.className = `notification ${type}`;
 
-        const icon = type === 'success' ? '✓' : '✕';
+        const icon = type === 'success' ? '<i class="fas fa-save"></i>' : '<i class="fa-solid fa-x"></i>';
         
         notification.innerHTML = `
             <span class="notification-icon">${icon}</span>

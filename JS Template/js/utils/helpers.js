@@ -1,4 +1,3 @@
-// helpers.js - Utility functions
 
 /**
  * Generate a unique ID

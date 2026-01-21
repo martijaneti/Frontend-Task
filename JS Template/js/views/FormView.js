@@ -1,4 +1,3 @@
-// FormView.js - Manages the user form
 
 class FormView {
     constructor() {

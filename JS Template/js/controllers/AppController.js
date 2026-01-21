@@ -1,5 +1,3 @@
-// AppController.js - Main application controller
-
 class AppController {
     constructor(userModel, modalView, gridView, formView, notificationView) {
         this.userModel = userModel;
@@ -9,31 +7,27 @@ class AppController {
         this.notificationView = notificationView;
     }
 
-    /**
-     * Initialize the application
-     */
+    //Initialize app
     init() {
         this.setupEventListeners();
         console.log('Inensia User Manager initialized');
     }
 
-    /**
-     * Set up all event listeners
-     */
+    //Event listeners
     setupEventListeners() {
-        // Logo click - open modal with grid
+        // Logo click and open modal with grid
         const logo = document.getElementById('logo');
         logo.addEventListener('click', () => {
             this.openModal();
         });
 
-        // Add User button - switch to form page
+        // Add User button and switch to form page
         const addUserBtn = document.getElementById('add-user-btn');
         addUserBtn.addEventListener('click', () => {
             this.showAddUserForm();
         });
 
-        // Close buttons - close modal and return to landing
+        // Close buttons and close modal and return to landing
         const closeGridBtn = document.getElementById('close-grid-btn');
         const closeFormBtn = document.getElementById('close-form-btn');
         
@@ -45,13 +39,13 @@ class AppController {
             this.closeModal();
         });
 
-        // Grid view events (edit and delete)
+        // Grid view (edit and delete)
         this.gridView.bindEvents(
             (userId) => this.handleEditUser(userId),
             (userId) => this.handleDeleteUser(userId)
         );
 
-        // Form submit event
+        // Form submit
         this.formView.bindSubmit((data) => {
             this.handleSaveUser(data);
         });
@@ -65,33 +59,27 @@ class AppController {
         });
     }
 
-    /**
-     * Open modal and show grid page with user data
-     */
+    //Open modal and show grid page with user data
     openModal() {
         this.modalView.show();
         this.modalView.showGrid();
         this.loadUsers();
     }
 
-    /**
-     * Close modal and return to landing page
-     */
+
+    //Close modal and return to landing page
     closeModal() {
         this.modalView.hide();
     }
 
-    /**
-     * Load users from model and render in grid
-     */
+
+    //Load users from model and render in grid
     loadUsers() {
         const users = this.userModel.getAll();
         this.gridView.render(users);
     }
 
-    /**
-     * Show form for adding a new user
-     */
+    //Show form for adding a new user
     showAddUserForm() {
         this.formView.clear();
         this.modalView.showForm();
@@ -99,7 +87,7 @@ class AppController {
 
     /**
      * Handle editing a user
-     * @param {string} userId - ID of user to edit
+     * @param {string} userId //ID of user to edit
      */
     handleEditUser(userId) {
         const user = this.userModel.getById(userId);
@@ -111,7 +99,7 @@ class AppController {
 
     /**
      * Handle deleting a user
-     * @param {string} userId - ID of user to delete
+     * @param {string} userId // ID of user to delete
      */
     handleDeleteUser(userId) {
         const success = this.userModel.delete(userId);
@@ -125,8 +113,8 @@ class AppController {
     }
 
     /**
-     * Handle saving a user (create or update)
-     * @param {Object} userData - User data from form
+     * Handle user(create or update)
+     * @param {Object} userData // User data from form
      */
     handleSaveUser(userData) {
         try {

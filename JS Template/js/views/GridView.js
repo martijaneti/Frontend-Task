@@ -1,4 +1,3 @@
-// GridView.js - Renders and manages the user grid/table
 
 class GridView {
     constructor() {
@@ -46,11 +45,11 @@ class GridView {
             <td>${this.escapeHtml(user.email || '-')}</td>
             <td>${this.escapeHtml(user.phone || '-')}</td>
             <td class="actions-cell">
-                <button class="btn btn-edit" data-action="edit" data-id="${user.id}">
-                    ✏️ Open
+                <button class="btn btn-edit" data-action="edit" data-id="${user.id}"><i class="fa-solid fa-folder-open"></i>
+                    Open
                 </button>
-                <button class="btn btn-danger" data-action="delete" data-id="${user.id}">
-                    🗑️ Delete
+                <button class="btn btn-delete" data-action="delete" data-id="${user.id}"><i class="fa-solid fa-trash"></i>
+                    Delete
                 </button>
             </td>
         `;
