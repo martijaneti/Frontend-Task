@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inensia Landing Page</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/modal.css">
+</head>
+<body>
+    <!-- <h2>Click on the Inensia logo to display the user manager</h2> -->
+    <!-- <img id="openPopup" src="../images/inensia_logo.png" alt="Inensia Logo"> -->
+
+    <!-- Landing Page -->
+    <div class="landing-page">
+        <div class="logo-container">
+            <img id="logo" src="../images/inensia_logo.png" alt="Inensia Logo" class="logo">
+            <p class="subtitle">Click logo to manage users</p>
+        </div>
+    </div>
+
+    <!-- Modal Overlay (hidden by default) -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal-container">
+            
+            <!-- Page 1: User Grid -->
+            <div id="grid-page" class="modal-page">
+                <div class="modal-header">
+                    <h2>User Management</h2>
+                </div>
+                <div class="toolbar">
+                    <button id="add-user-btn" class="btn btn-primary">
+                        <span>➕</span> Add User
+                    </button>
+                    <button id="close-grid-btn" class="btn btn-secondary">
+                        <span>✕</span> Close
+                    </button>
+                </div>
+                <div class="table-container">
+                    <table id="user-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-table-body">
+                            <!-- User rows will be rendered here -->
+                        </tbody>
+                    </table>
+                    <div id="empty-state" class="empty-state hidden">
+                        <p>No users found. Click "Add User" to create one.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 2: User Form -->
+            <div id="form-page" class="modal-page hidden">
+                <div class="modal-header">
+                    <h2 id="form-title">Add User</h2>
+                </div>
+                <form id="user-form" class="user-form">
+                    <input type="hidden" id="user-id" name="id">
+                    
+                    <div class="form-group">
+                        <label for="user-name">Name <span class="required">*</span></label>
+                        <input 
+                            type="text" 
+                            id="user-name" 
+                            name="name" 
+                            placeholder="Enter full name"
+                            required
+                        >
+                        <span class="error-message" id="name-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-email">Email</label>
+                        <input 
+                            type="email" 
+                            id="user-email" 
+                            name="email" 
+                            placeholder="Enter email address"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-phone">Phone</label>
+                        <input 
+                            type="tel" 
+                            id="user-phone" 
+                            name="phone" 
+                            placeholder="Enter phone number"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input 
+                                type="checkbox" 
+                                id="additional-details-checkbox" 
+                                name="hasAdditionalDetails"
+                            >
+                            <label for="additional-details-checkbox">Additional Details</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group hidden" id="category-group">
+                        <label for="user-category">Category</label>
+                        <select id="user-category" name="category">
+                            <option value="">Select category</option>
+                            <option value="VIP">VIP</option>
+                            <option value="Priority">Priority</option>
+                            <option value="Regular">Regular</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <span>💾</span> Save
+                        </button>
+                        <button type="button" id="close-form-btn" class="btn btn-secondary">
+                            <span>✕</span> Close
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/app.js" type="module"></script>
+</body>
+</html>
